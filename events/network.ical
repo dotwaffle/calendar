@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Maintenance Calendar//Matthew Walster//EN
+{% for Entry in allevents %}BEGIN:VEVENT
+UID:{{ Entry.uid }}
+DTSTAMP:{{ Entry.datestamp|date:"Ymd" }}T{{ Entry.datestamp|date:"His" }}Z
+DTSTART:{{ Entry.datestart|date:"Ymd" }}T{{ Entry.datestart|date:"His" }}Z
+DTEND:{{ Entry.datefinish|date:"Ymd" }}T{{ Entry.datefinish|date:"His" }}Z
+SUMMARY:{{ Entry.summary }}
+DESCRIPTION:{{ Entry.description }}
+END:VEVENT
+{% endfor %}END:VCALENDAR
