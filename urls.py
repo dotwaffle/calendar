@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     # Uncomment this for admin:
     (r'^admin/(.*)', admin.site.root),
 
-    (r'^events/$', 'maintenance.events.views.index'),
+    # (r'^events/network.ical$', 'maintenance.events.views.network'),
+    (r'^events/(?P<area_request>)', 'maintenance.events.views.calendar'),
 )
