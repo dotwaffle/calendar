@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Shift Calendar//Matthew Walster//EN
+{% for Entry in allshifts %}BEGIN:VEVENT
+UID:{{ Entry.uid }}
+DTSTAMP:{{ Entry.datestamp|date:"Ymd" }}T{{ Entry.datestamp|date:"His" }}Z
+DTSTART:{{ Entry.shift.datestart|date:"Ymd" }}T{{ Entry.shift.datestart|date:"His" }}Z
+DTEND:{{ Entry.shift.dateend|date:"Ymd" }}T{{ Entry.shift.dateend|date:"His" }}Z
+RRULE:FREQ=DAILY;COUNT={{ Entry.count }}
+SUMMARY:{{ Entry.tech }}
+DESCRIPTION:{{ Entry.type }}
+END:VEVENT
+{% endfor %}END:VCALENDAR
