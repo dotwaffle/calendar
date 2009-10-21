@@ -5,11 +5,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^maintenance/', include('maintenance.foo.urls')),
+    # (r'^calendars/', include('calendars.foo.urls')),
 
-    # Uncomment this for admin:
     (r'^admin/(.*)', admin.site.root),
 
-    # (r'^events/network.ical$', 'maintenance.events.views.network'),
-    (r'^events/(?P<area_request>)', 'maintenance.events.views.calendar'),
+    (r'^events/ical/(?P<area_request>)', 'calendars.events.views.icalendar'),
 )

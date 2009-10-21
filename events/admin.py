@@ -1,4 +1,4 @@
-from maintenance.events.models import Entry,Area
+from calendars.events.models import Entry, Area
 from django.contrib import admin
 
 admin.site.register(Entry)
