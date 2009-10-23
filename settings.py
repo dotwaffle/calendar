@@ -79,5 +79,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'calendars.events',
+    'calendars.techs',
     'django.contrib.admin'
 )

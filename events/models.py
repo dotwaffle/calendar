@@ -8,7 +8,7 @@ class Area(models.Model):
 class Entry(models.Model):
 	uid         = models.AutoField(primary_key=True)
 	area        = models.ManyToManyField(Area)
-	datestamp   = models.DateTimeField(auto_now=True, 'Date Modified')
+	datestamp   = models.DateTimeField('Date Modified', auto_now=True)
 	datestart   = models.DateTimeField('Date Started')
 	datefinish  = models.DateTimeField('Date Finished')
 	summary     = models.CharField(max_length=200)

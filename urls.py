@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     (r'^admin/(.*)', admin.site.root),
 
     (r'^events/ical/(?P<area_request>)', 'calendars.events.views.icalendar'),
+    (r'^tech/ical/(?P<tech_request>)', 'calendars.techs.views.icalendartech'),
+    (r'^techs/ical/$', 'calendars.techs.views.icalendartechs'),
 )
