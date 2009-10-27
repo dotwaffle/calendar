@@ -6,7 +6,8 @@ UID:{{ Entry.uid }}
 DTSTAMP:{{ Entry.datestamp|date:"Ymd" }}T{{ Entry.datestamp|date:"His" }}Z
 DTSTART:{{ Entry.datestart|date:"Ymd" }}T{{ Entry.datestart|date:"His" }}Z
 DTEND:{{ Entry.datefinish|date:"Ymd" }}T{{ Entry.datefinish|date:"His" }}Z
-SUMMARY:{% for severity in Entry.severity.all %}{{ severity }}{% endfor %}: {{ Entry.summary }}
+SUMMARY:{% for severity in Entry.severity.all %}{{ severity }} {% endfor %}{% for area in Entry.area.all %}{{ area }} {% endfor %}: {{ Entry.summary }}
+LOCATION:{% for site in Entry.site.all %}{{ site }} {% endfor %}
 DESCRIPTION:{{ Entry.description }}
 END:VEVENT
 {% endfor %}END:VCALENDAR
