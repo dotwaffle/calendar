@@ -5,9 +5,15 @@ class Area(models.Model):
 	def __unicode__(self):
 		return self.area
 
+class Site(models.Model):
+	site        = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.site
+
 class Entry(models.Model):
 	uid         = models.AutoField(primary_key=True)
 	area        = models.ManyToManyField(Area)
+	site        = models.ManyToManyField(Site)
 	datestamp   = models.DateTimeField('Date Modified', auto_now=True)
 	datestart   = models.DateTimeField('Date Started')
 	datefinish  = models.DateTimeField('Date Finished')

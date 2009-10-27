@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import Context, loader
-from calendars.events.models import Entry, Area
+from calendars.events.models import Entry, Area, Site
 from datetime import datetime, date, time
 
 def icalendar(request, area_request):
