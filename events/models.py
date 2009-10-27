@@ -10,6 +10,11 @@ class Site(models.Model):
 	def __unicode__(self):
 		return self.site
 
+class Severity(models.Model):
+	severity    = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.severity
+
 class Entry(models.Model):
 	uid         = models.AutoField(primary_key=True)
 	area        = models.ManyToManyField(Area)
@@ -18,6 +23,7 @@ class Entry(models.Model):
 	datestart   = models.DateTimeField('Date Started')
 	datefinish  = models.DateTimeField('Date Finished')
 	summary     = models.CharField(max_length=200)
+	severity    = models.ManyToManyField(Severity)
 	description = models.TextField()
 	def __unicode__(self):
 		return self.summary
