@@ -9,7 +9,12 @@ urlpatterns = patterns('',
 
     (r'^admin/(.*)', admin.site.root),
 
-    (r'^events/ical/(?P<area_request>)', 'calendars.events.views.icalendar'),
+    # Maintenance
+    (r'^events/ical/(?P<area_request>)', 'calendars.events.views.icalendararea'),
+    (r'^events/ical/(?P<site_request>)', 'calendars.events.views.icalendarsite'),
+    (r'^events/ical/$', 'calendars.events.views.icalendar'),
+
+    # Technicians Rota
     (r'^tech/ical/(?P<tech_request>)', 'calendars.techs.views.icalendartech'),
     (r'^techs/ical/$', 'calendars.techs.views.icalendartechs'),
 )
