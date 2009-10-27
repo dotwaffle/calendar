@@ -6,7 +6,7 @@ UID:{{ Entry.uid }}
 DTSTAMP:{{ Entry.datestamp|date:"Ymd" }}T{{ Entry.datestamp|date:"His" }}Z
 DTSTART:{{ Entry.datestart|date:"Ymd" }}T{{ Entry.datestart|date:"His" }}Z
 DTEND:{{ Entry.datefinish|date:"Ymd" }}T{{ Entry.datefinish|date:"His" }}Z
-SUMMARY:{{ Entry.summary }}
+SUMMARY:{% for severity in Entry.severity.all %}{{ severity }}{% endfor %}: {{ Entry.summary }}
 DESCRIPTION:{{ Entry.description }}
 END:VEVENT
 {% endfor %}END:VCALENDAR
